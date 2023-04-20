@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// salom
 Route::get('/', [SiteController::class, 'index'])->name('index');
 
 Route::get('/login', [AuthController::class, 'index'])->name('login.index');
