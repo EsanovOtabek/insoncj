@@ -57,7 +57,7 @@
                             </a>
                         </td>
                         <td style="width: 20%">
-                            <a href="{{ route('profile.article.edit',$article->id) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                            <a href="{{ route('profile.article.edit',$article->id) }}" class="btn btn-success"><i class="fa fa-pencil-alt"></i></a>
                             |
                             <form action="{{ route('profile.article.destroy', $article->id) }}" method="POST" onsubmit="return confirm('Jurnal sonini o\'chirmoqchimisiz?')" style="display: inline;">
                                 @csrf

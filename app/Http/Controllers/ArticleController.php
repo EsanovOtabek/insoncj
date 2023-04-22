@@ -59,20 +59,31 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
-        //
+
+        return view('user.article-edit',[
+            'article' => $article
+        ]);
     }
 
     public function download($file){
-        $headers = array(
-            'Content-Type: application/pdf',
-        );
-        return Storage::disk('journals/'.$file,$file,$headers);
-
     }
 
     public function update(Request $request, Article $article)
     {
-        //
+        $data  = $this->validateData2();
+        $data['file'] = $article['file'];
+        if($request->hasFile('file')){
+            $file = $request->file('file');
+            $file_name = md5(time() . "_" . $data['user_id']) . "." . $file->extension();
+            $ff = $file->storeAs('article',$file_name);
+
+            Storage::delete('article/'.$article['file']);
+            $data['file'] = $file_name;
+        }
+        $article->update($data);
+
+        return redirect()->back()->with('success_msg',"O'zgarishlar saqlandi!");
+
     }
 
     /**
@@ -93,6 +104,15 @@ class ArticleController extends Controller
             'keywords' => 'required',
             'abstract' => 'required',
             'file' => 'mimes:doc,docx|max:15360',
+        ]);
+    }
+
+    public function validateData2(){
+        return request()->validate([
+            'title' => 'required',
+            'authors' => 'required',
+            'keywords' => 'required',
+            'abstract' => 'required',
         ]);
     }
 }

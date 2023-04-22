@@ -8,6 +8,7 @@ use App\Http\Controllers\IssueController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\YearController;
 use Illuminate\Support\Facades\Route;
 
@@ -67,9 +68,11 @@ Route::group(['prefix' => 'admin', 'middleware'=>'role:admin'], function (){
 Route::get('files/journal/{file}', [IssueController::class,'journalDownload'])->name('files.journal');
 
 Route::group(['prefix' => 'profile', 'middleware'=>'role:user'], function (){
-    Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
-    Route::get('/home', [ProfileController::class, 'home'])->name('profile.home');
-    Route::get('/settings', [ProfileController::class, 'settings'])->name('profile.settings');
+    Route::get('/', [UserController::class, 'index'])->name('profile.index');
+    Route::get('/home', [UserController::class, 'home'])->name('profile.home');
+    Route::get('/settings', [UserController::class, 'edit'])->name('profile.settings');
+    Route::post('/settings', [UserController::class, 'update']);
+    Route::post('/updatePassword',[UserController::class, 'updatePassword'])->name('profile.updatePassword');
 
     Route::resource('article', ArticleController::class,[
         'as' => 'profile',
