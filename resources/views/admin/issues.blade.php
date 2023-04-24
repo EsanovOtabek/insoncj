@@ -44,7 +44,7 @@
                         <td>{{ $issue->yil }} - yil</td>
                         <td> <a href="{{ route('files.journal',$issue->file) }}" class="btn btn-primary"><i class="fa fa-download"></i> {{$issue->file}}</a> </td>
                         <td style="width: 20%">
-                            <a href="{{ route('admin.issues.show',$issue->id) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                            <a href="{{ route('admin.articles') }}?issue={{$issue->id}}" class="btn btn-success"><i class="fa fa-eye"></i></a>
                             |
                             <form action="{{ route('admin.issues.destroy', $issue->id) }}" method="POST" onsubmit="return confirm('Jurnal sonini o\'chirmoqchimisiz?')" style="display: inline;">
                                 @csrf

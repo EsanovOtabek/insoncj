@@ -10,6 +10,42 @@ use Illuminate\Support\Facades\Storage;
 class ArticleController extends Controller
 {
 
+//    for admin
+    public function all(Request $request){
+        $issue_id = $request->issue;
+
+        $cmp = "=";
+        if(is_null($issue_id)) $cmp = "!=";
+
+        $articles = Article::where('articles.issue_id',$cmp,$issue_id)->get();
+
+
+        return view('admin.articles',[
+            'articles' => $articles,
+        ]);
+    }
+
+    public function details(Article $article){
+
+        return view('admin.article-details',[
+            'article' => $article,
+        ]);
+    }
+
+    public function status(Article $article, Request $request){
+        if($request->status == 'waiting' || $request->status == 'accepted' || $request->status == 'rejected'){
+            $article->status = $request->status;
+            $article->save();
+
+            return redirect()->back()->with('success_msg', "Status o'zgartirildi!");
+        }
+
+        return response('Bad request',400);
+    }
+
+//  end form admin
+
+//  for users
     public function index()
     {
         $val = '>';
@@ -52,11 +88,6 @@ class ArticleController extends Controller
     }
 
 
-    public function show(Article $article)
-    {
-
-    }
-
     public function edit(Article $article)
     {
 
@@ -86,15 +117,10 @@ class ArticleController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Article $article)
     {
-
+        $article->delete();
+        return redirect()->back()->with('success_msg',"Maqolangiz o'chirildi!");
     }
 
     public function validateData(){

@@ -64,6 +64,11 @@ Route::group(['prefix' => 'admin', 'middleware'=>'role:admin'], function (){
         'except' => 'show'
     ]);
 
+
+    Route::get('/articles', [ArticleController::class, 'all'])->name('admin.articles');
+    Route::get('/article/{article}', [ArticleController::class, 'details'])->name('admin.article.details');
+    Route::get('/article/{article}/status', [ArticleController::class, 'status'])->name('admin.article.status');
+
 });
 Route::get('files/journal/{file}', [IssueController::class,'journalDownload'])->name('files.journal');
 
@@ -74,7 +79,7 @@ Route::group(['prefix' => 'profile', 'middleware'=>'role:user'], function (){
     Route::post('/settings', [UserController::class, 'update']);
     Route::post('/updatePassword',[UserController::class, 'updatePassword'])->name('profile.updatePassword');
 
-    Route::resource('article', ArticleController::class,[
+    Route::resource('/article', ArticleController::class,[
         'as' => 'profile',
     ]);
 

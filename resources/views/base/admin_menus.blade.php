@@ -28,6 +28,17 @@
         </a>
     </li>
 
+    <li class="nav-item">
+        <a href="{{ route('admin.articles') }}" class="nav-link">
+            <i class="nav-icon fas fa-file-archive"></i>
+            <p>
+                Maqolalar
+            </p>
+        </a>
+    </li>
+
+
+
     {{--Yangiliklar--}}
     <li class="nav-item">
         <a href="#" class="nav-link">
