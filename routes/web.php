@@ -5,6 +5,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExpertController;
 use App\Http\Controllers\IssueController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
@@ -31,6 +32,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register',[AuthController::class,'register'])->name('register');
 Route::post('/register',[AuthController::class,'registerStore'])->name('register.store');
 
+Route::get('lang/{lang}',[LanguageController::class, 'setLanguage']  )->name('language');
+
 
 Route::get('/',[SiteController::class,'index'])->name('index');
 Route::get('/about',[SiteController::class,'about'])->name('about');
@@ -38,7 +41,6 @@ Route::get('/news',[SiteController::class,'news'])->name('news');
 Route::get('/news/{news}',[SiteController::class,'newsShow'])->name('newsShow');
 Route::get('/archive',[SiteController::class,'archive'])->name('archive');
 Route::get('/experts',[SiteController::class,'experts'])->name('experts');
-Route::get('/contact',[SiteController::class,'contact'])->name('contact');
 
 Route::group(['prefix' => 'admin', 'middleware'=>'role:admin'], function (){
     Route::redirect('/','admin/home')->name('admin.index');

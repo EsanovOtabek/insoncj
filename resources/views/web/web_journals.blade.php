@@ -1,8 +1,8 @@
 <section class="bg-light py-5 feature-list border-bottom">
     <div class="container py-4">
         <div  class="pb-2">
-            <h4 class="fw-bold text-black">Jurnallar</h4>
-            <p class="mb-4 text-muted">Jurnalimizning so'ngi 4 soni.</p>
+            <h4 class="fw-bold text-black">{{ __('home.journals') }} </h4>
+            <p class="mb-4 text-muted">{{ __('home.journals_last4') }} </p>
         </div>
         <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 g-4">
             @foreach($journals as $journal)
@@ -17,7 +17,7 @@
                         <div class="card-footer bg-white border-0 d-flex align-items-center justify-content-between p-3 border-top">
 {{--                            <p class="text-muted small mb-0">{{ date('Y.m.d', strtotime($journal['created_at'])) }}</p>--}}
                             <a href="{{ route('files.journal', $journal->file) }}" type="button" class="btn btn-primary btn-sm px-2 py-0">
-                                <i class="bi bi-download"></i> Yuklash
+                                <i class="bi bi-download"></i> {{ __('home.download') }}
                             </a>
                         </div>
                     </div>

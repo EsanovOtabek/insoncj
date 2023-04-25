@@ -1,7 +1,7 @@
 @extends('base.web')
 
-@section('title', 'Bosh sahifa')
-@section('description', "Inson kapitali va ijtimoiy rivojlanish ilmiy jurnali")
+@section('title', __('home.home'))
+@section('description', __('home.journal_name'))
 @section('og_image', '')
 
 @section('body')

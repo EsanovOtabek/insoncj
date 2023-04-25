@@ -1,7 +1,7 @@
 <section class="bg-light py-5 border-bottom">
     <div class="container py-4">
         <div class="pb-3">
-            <h4 class="mb-2 fw-bold text-black">E'lonlar</h4>
+            <h4 class="mb-2 fw-bold text-black">{{ __('home.ads') }}</h4>
         </div>
         <!-- 1st video -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -24,7 +24,7 @@
                         <div class="card-footer border-0 bg-white border-top p-3">
                             <div class="d-grid">
                                 <a href="{{ route('newsShow', $n->id) }}" class="btn btn-primary btn-lg">
-                                    <i class="bi bi-eye"></i> Batafsil
+                                    <i class="bi bi-eye"></i> {{ __('home.more') }}
                                 </a>
                             </div>
                         </div>
@@ -34,6 +34,6 @@
         </div>
     </div>
     <div class="text-center mt-3 pb-4">
-        <a href="{{route('news')}}" class="btn btn-outline-primary btn-lg">Barcha e'lonlar &nbsp;<i class="bi bi-arrow-right"></i></a>
+        <a href="{{route('news')}}" class="btn btn-outline-primary btn-lg">{{ __('home.all_ads') }} &nbsp;<i class="bi bi-arrow-right"></i></a>
     </div>
 </section>

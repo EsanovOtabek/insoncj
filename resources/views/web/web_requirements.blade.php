@@ -1,7 +1,7 @@
 <div class="feature-list py-5 border-bottom bg-white">
     <div class="container py-4">
         <heading>
-            <h3 class="text-center pb-4 mb-4 fw-bold text-black">Mualliflar uchun talablar</h3>
+            <h3 class="text-center pb-4 mb-4 fw-bold text-black">{{ __('home.requirements') }}</h3>
         </heading>
         <div class="row">
             <div class="col-md-6 gap-4 d-flex">
