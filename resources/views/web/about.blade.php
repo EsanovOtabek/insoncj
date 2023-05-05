@@ -1,7 +1,7 @@
 @extends('base.web')
 
-@section('title', 'Jurnal haqida')
-@section('description', "Inson kapitali va ijtimoiy rivojlanish ilmiy jurnali")
+@section('title',  __('home.about'))
+@section('description', __('home.journal_name'))
 @section('og_image', '')
 
 @section('body')
@@ -12,10 +12,10 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">
                         <a href="{{ route('index') }}">
-                            <i class="bi bi-house"></i> Bosh sahida
+                            <i class="bi bi-house"></i> {{ __('home.home') }}
                         </a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Jurnal haqida</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ __('home.about') }}</li>
                 </ol>
             </nav>
         </div>
@@ -27,9 +27,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center my-5">
-                        <h1 class="display-4 fw-bold text-body mb-3">Jurnalimiz haqida</h1>
+                        <h1 class="display-4 fw-bold text-body mb-3">{{ __('about.about') }}</h1>
                         <p class="lead fw-normal text-dark mb-4">
-                            «Inson kapitali va ijtimoiy rivojlanish», «Human capital and social development», «Человеческий капитал и социальное развития»  jurnalining muassisi – Samarqand Davlat universiteti hisoblanadi
+                            {{ __('about.about_title') }}
                         </p>
                     </div>
                 </div>
@@ -43,15 +43,15 @@
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-4"><img class="img-fluid w-75 rounded-3 mb-5 mb-lg-0" src="{{ asset('images/site/journal.png') }}" alt="..." /></div>
                 <div class="col-lg-8">
-                    <h2 class="fw-bold mb-3 text-body">Jurnalning maqsadlari</h2>
+                    <h2 class="fw-bold mb-3 text-body">{{ __('about.about_1') }}</h2>
                     <p class="lead fw-normal text-muted mb-0">
-                        Iqtisodiyot, ijtimoiy va gumanitar fanlar sohasida  bajarilayotgan ilmiy-tadqiqot ishlarining natijalarini chop etish, raqobatbardosh  ishlanmalar va innovatsion yechimlar xususida ilmiy salohiyatli mutaxassislarniig tajribalarini  ommaviylashtirish, fundamental va innovatsion ilmiy jarayonlar xabarlari, monografiyalarga taqrizlar, xorijiy  mamlakatlar olimlari bilan aloqalarni keng yoritishdan iborat;
+                        {{ __('about.about_1c') }}
                         <br>
-                        Ilm-fan sohasida olib borilayotgan tub islohotlarning mohiyatini tushuntirish;
+                        {{ __('about.about_1c1') }}
                         <br>
-                        O‘zbekiston Respublikasida va jahonda yuz berayotgan ilmiy, nazariy-uslubiy  yangiliklarni  yoritish;
+                        {{ __('about.about_1c2') }}
                         <br>
-                        Olimlar kengashining o‘z oldiga qo‘ygan vazifalari va tahririyat nizomi asosida faoliyat ko‘rsatadi. Ilmiy-nazariy, fanlar yo‘nalishida olib borilayotgan dolzarb ilmiy izlanishlar salohiyatini yana-da yuksaltirish, ilm-fan yutuqlarini keng targ‘ib qilish, yangi texnologiyalarni joriy etish,  olimlarning ilmiy faoliyatiga har tomonlama ko‘maklashish uchun imkoniyat yaratishlar jurnalning bosh maqsadidir.
+                        {{ __('about.about_1c3') }}
                     </p>
                 </div>
             </div>
@@ -64,18 +64,17 @@
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-4 order-first order-lg-last"><img class="img-fluid rounded-3 mb-5 mb-lg-0" src="{{ asset('images/site/guvohnoma.jpg') }}" alt="..." /></div>
                 <div class="col-lg-8">
-                    <h2 class="fw-bold mb-3 text-body">Jurnalning vazifalari</h2>
+                    <h2 class="fw-bold mb-3 text-body">{{ __('about.about_2') }}</h2>
                     <p class="lead fw-normal text-muted mb-0">
-                        O‘zbekiston Respublikasida fan va texnologiyalar modernizatsiyasi borasida amalga oshirilayotgan tub islohotlar, milliy istiqlol g‘oyasi targ‘iboti va ilmiy-maʼrifiy ishlar samaradorligini oshirish, iqtidorli va salohiyatli yoshlarni izlab topish va ularni  ilmiy-tadqiqot ishlariga yo‘naltirish orqali jamiyatimizda sohaning yetuk professional kadrlarini tayyorlashga erishish;
+                        {{ __('about.about_2c') }}
                         <br>
-                        Ilmiy tahlil etish, uning natijalarini amaliyotga joriy etish bo‘yicha Mustaqil Davlatlar Hamdo‘stligi va boshqa davlatlar mutaxassislari ishlarini umumlashtirish va hamkorlikni yo‘lga qo‘yish;
+                        {{ __('about.about_2c1') }}
                         <br>
-                        Talabalar va xodimlarni ilm-fanning so‘nggi maʼlumotlaridan voqif etish maqsadida «Inson kapitali va ijtimoiy rivojlanish» sahifalarida mamlakatimizda olib borayotgan innovatsion ishlanmalar, ixtirolar, patentlar haqida maʼlumotlar berib borishni taʼminlash;
+                        {{ __('about.about_2c2') }}
                         <br>
-                        Iqtidorli talabalarning ilmiy ish yuzasidan malakasini oshirish borasida mamlakatda yaratilgan imkoniyatlar, shart-sharoitlar haqida maʼlumotlar berib borish;
+                        {{ __('about.about_2c3') }}
                         <br>
-                        Mintaqada yaratilgan yangi innovatsiyalarni ommalashtirishga va ishlab chiqarishga joriy etishga ko‘maklashishdan iborat bo‘ladi.
-
+                        {{ __('about.about_2c4') }}
                     </p>
                 </div>
             </div>

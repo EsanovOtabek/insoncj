@@ -36,7 +36,17 @@ return [
     'download' => "Yuklab olish",
     'requirements' => 'Mualliflar uchun talablar',
     'more' => "Batafsil",
-    'all_ads' => "Barcha E'lonlar"
+    'all_ads' => "Barcha E'lonlar",
+    'last_ads' => "Eng so'ngi e'lonlar",
+    'year' => "yil",
+    'number'=>"son",
+    'password'=> "Parol",
+    'ask_register'=> "Tizimdan ro'yxatdan o'tmaganmisiz?",
+    'ask_login'=> "Tizimda oldin ro'yxatdan o'tganmisiz?",
+    'login_problem' => "Ro'yxatdan o'tishda muammo bormi?",
+    'fish' => "F.I.SH",
+    'share' => "Ulashish",
+
 
 
 

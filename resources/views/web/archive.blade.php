@@ -1,7 +1,7 @@
 @extends('base.web')
 
-@section('title', 'Jurnallar arxivi')
-@section('description', "Jurnallar arxivi")
+@section('title', __('about.journal_archive'))
+@section('description',  __('home.journal_name'))
 @section('og_image', '')
 
 @section('body')
@@ -12,10 +12,10 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">
                         <a href="{{ route('index') }}">
-                            <i class="bi bi-house"></i> Bosh sahida
+                            <i class="bi bi-house"></i> {{ __('home.home') }}
                         </a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Jurnallar arxivi</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ __('about.journal_archive') }}</li>
                 </ol>
             </nav>
         </div>
@@ -27,7 +27,7 @@
     <section class="py-5 bg-white">
         <div class="container my-5">
             <div class="text-center">
-                <h2 class="fw-bold text-body">Jurnallar arxivi</h2>
+                <h2 class="fw-bold text-body">{{ __('about.journal_archive') }}</h2>
                 <br><br>
             </div>
             <div class="row gx-5 row-cols-1">
@@ -56,12 +56,12 @@
                                                         <img src="{{ asset('images/site/journal.png') }}" class="card-img-top d-none d-lg-block" alt="...">
                                                         <div class="card-body row">
                                                             <div class="col-7">
-                                                                <h5 class="card-title mb-1 h6 text-dark">{{$journal['year']}}-yil. {{ $journal['number'] }}-son</h5>
-                                                                <p class="card-text text-muted">{{$journal['year']}}-yil.</p>
+                                                                <h5 class="card-title mb-1 h6 text-dark">{{$journal['year']}} {{ __('home.year') }}. {{ $journal['number'] }} {{ __('home.number') }}</h5>
+                                                                <p class="card-text text-muted">{{$journal['year']}} {{ __('home.year') }}.</p>
                                                             </div>
                                                             <div class="col-5 text-right">
                                                                 <a href="{{ route('files.journal', $journal->file) }}" type="button" class="btn btn-primary btn-sm px-2 py-0">
-                                                                    <i class="bi bi-download"></i> Yuklash
+                                                                    <i class="bi bi-download"></i> {{ __('home.download') }}
                                                                 </a>
                                                             </div>
                                                         </div>

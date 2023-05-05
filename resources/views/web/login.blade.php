@@ -1,7 +1,7 @@
 @extends('base.web')
 
-@section('title', "Tizimga kirish")
-@section('description', "Inson kapitali va ijtimoiy rivojlanish ilmiy jurnali")
+@section('title', __('home.profile'))
+@section('description',  __('home.journal_name') )
 @section('og_image', '')
 @push('page_js')
     <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
@@ -21,11 +21,11 @@
             <!-- Login -->
             <div id="login">
                 <div class="m-auto bg-white shadow-sm p-5 rounded-3 text-center col-md-4 mx-auto">
-                    <h3 class="fw-bold text-black mb-2">Tizimga kirish</h3>
+                    <h3 class="fw-bold text-black mb-2">{{  __('home.profile') }}</h3>
                     <form action="" class="text-start pt-4" method="POST">
                         @csrf
                         <div class="mb-3 row">
-                            <label for="fish" class="form-label small text-muted col-12">Telefon <small class="text-danger">*</small></label>
+                            <label for="fish" class="form-label small text-muted col-12">{{ __('home.phone') }} <small class="text-danger">*</small></label>
                             <div class="input-group-append col-4 m-0">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text ps-md-4 ps-sm-3"><b>+998</b></span>
@@ -38,16 +38,16 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="password" class="form-label small text-muted">Parol <small class="text-danger">*</small></label>
+                            <label for="password" class="form-label small text-muted">{{ __('home.password') }} <small class="text-danger">*</small></label>
                             <input type="password" name="password" class="form-control" id="password" placeholder="********">
                         </div>
 
-                        <button type="submit" class="btn btn-dark fw-bold fs-7 rounded-3 shadow-sm w-100 border-0 px-4 py-3 text-uppercase">Kirish</button>
+                        <button type="submit" class="btn btn-dark fw-bold fs-7 rounded-3 shadow-sm w-100 border-0 px-4 py-3 text-uppercase">{{ __('home.login') }}</button>
                     </form>
 
-                    <p class="text-muted mb-0">Tizimdan ro'yxatdan o'tmaganmisiz? <a href="{{ route('register') }}" class="text-mdinfo">Ro'yxatdan o'tish</a></p>
+                    <p class="text-muted mb-0">{{ __('home.ask_register') }} <a href="{{ route('register') }}" class="text-mdinfo">{{ __('home.register') }}</a></p>
                 </div>
-                <p class="mb-0 text-center small text-white my-5">Ro'yxatdan o'tishda muammo bormi? <a href="tel:+998932360433" class="text-decoration-underline text-white">Bog'lanish</a></p>
+                <p class="mb-0 text-center small text-white my-5">{{ __('home.login_problem') }} <a href="tel:+998932360433" class="text-decoration-underline text-white">{{ __('home.contact') }}</a></p>
             </div>
         </div>
     </div>

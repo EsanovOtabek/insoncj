@@ -1,7 +1,7 @@
 @extends('base.web')
 
-@section('title', 'Tahririyat a\'zolari')
-@section('description', "Inson kapitali va ijtimoiy rivojlanish ilmiy jurnali")
+@section('title', __('home.experts'))
+@section('description',  __('home.journal_name'))
 @section('og_image', '')
 
 @section('body')
@@ -12,10 +12,10 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">
                         <a href="{{ route('index') }}">
-                            <i class="bi bi-house"></i> Bosh sahida
+                            <i class="bi bi-house"></i> {{ __('home.home') }}
                         </a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Tahririyat a'zolari</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ __('home.experts') }}</li>
                 </ol>
             </nav>
         </div>
@@ -27,7 +27,7 @@
     <section class="py-5 bg-white">
         <div class="container my-5">
             <div class="text-center">
-                <h2 class="fw-bold text-body">Tahririyat a'zolari</h2>
+                <h2 class="fw-bold text-body">{{ __('home.experts') }}</h2>
                 <br><br>
             </div>
             <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
