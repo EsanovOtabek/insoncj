@@ -12,10 +12,8 @@ class LanguageMiddleware
 
     public function handle(Request $request, Closure $next)
     {
-        if(Session::get("lang") !=null){
-            App:setlocale(Session::get("lang"));
-        }else{
-            Session::put('lang',"uz");
+        if(session()->has('lang')){
+            app()->setLocale(session()->get("lang"));
         }
         return $next($request);
     }
