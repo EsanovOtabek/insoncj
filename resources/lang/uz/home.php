@@ -18,14 +18,12 @@ return [
     'doc_2val' => "Shundan keyin sizda fayl tanlash oynasi ko'rinadi",
     'doc_3' => "Fayl tanlang va yuboring",
     'doc_3val' => "Tayyorlagan maqolangizning elektron nusxasini tanlang. Bunda tanlangan fayl .docx yoki .doc formatda bo'lishi maqsadga muvofiq",
-    'journals' => "Kirish",
-    'journals_last4' => "Kirish",
-
+    'journals' => "Jurnallar",
+    'journals_last4' => "Jurnalimizning so'ngi 4 soni.",
     'counter_1' => "Jurnal sonlari",
     'counter_2' => "Jami maqolalar soni",
     'counter_3' => "Tahririyat a'zolari",
     'counter_4' => "Foydalanuvchilar",
-
     'phone' => "Telefon",
     'email' => "Email",
     'adress' => "Manzil: Universitet xiyoboni 15-uy",
@@ -46,8 +44,4 @@ return [
     'login_problem' => "Ro'yxatdan o'tishda muammo bormi?",
     'fish' => "F.I.SH",
     'share' => "Ulashish",
-
-
-
-
 ];

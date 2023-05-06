@@ -4,16 +4,16 @@
             <div class="row">
                 <div class="col-6 col-lg-2 col-md-3">
                     <h6 class="mb-3 text-body fw-bold">{{ __('home.menus') }}</h6>
-                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('index') }}">Bosh sahifa</a>
-                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('about') }}">Jurnal haqida</a>
-                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('news') }}">E'lonlar</a>
-                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('archive') }}">Arxiv</a>
-                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('experts') }}">Tahririyat a'zolari</a>
+                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('index') }}">{{ __('home.home') }}</a>
+                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('about') }}">{{ __('home.about') }}</a>
+                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('news') }}">{{ __('home.ads') }}</a>
+                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('archive') }}">{{ __('home.archive') }}</a>
+                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('experts') }}">{{ __('home.experts') }}</a>
                 </div>
                 <div class="col-6 col-lg-2 col-md-3">
                     <h6 class="mb-3 text-body fw-bold">{{ __('home.auth') }}</h6>
-                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('login') }}">Kirish</a>
-                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('register') }}">Ro'yxatdan o'tish</a>
+                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('login') }}">{{ __('home.login') }}</a>
+                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="{{ route('register') }}">{{ __('home.register') }}</a>
                 </div>
                 <div class="col-6 col-lg-2 col-md-3">
                     <h6 class="mb-3 text-body fw-bold">{{ __('home.contact') }}</h6>
