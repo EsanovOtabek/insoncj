@@ -28,7 +28,7 @@
                     <th>Jurnal soni</th>
                     <th>Mualliflar</th>
                     <th>Maqola holati</th>
-                    <th>Tahrirlash | O'chirish</th>
+                    <th>Yuklash | Tahrirlash | O'chirish</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -40,23 +40,42 @@
                             {{ $article->issue->yil }} - yil
                             {{ $article->issue->number }} - son.
                         </td>
+                        <td>{{ $article->authors }}</td>
                         @switch($article->status)
                             @case('waiting')
-                                <td class="bg-warning">Kutilmoqda</td>
+                                <td class="bg-warning">Kutilmoqda |
+                                    @if(isset($article->comment))
+                                        <button class="btn btn-light" onclick='comments("{{$article->comment}}")'>
+                                            <i class="fa fa-comment"></i>
+                                        </button>
+                                    @endif
+                                </td>
                                 @break
                             @case('rejected')
-                                <td class="bg-danger">Rad etildi</td>
+                                <td class="bg-danger">Rad etildi |
+                                    @if(isset($article->comment))
+                                        <button class="btn btn-light" onclick='comments("{{$article->comment}}")'>
+                                            <i class="fa fa-comment"></i>
+                                        </button>
+                                    @endif
+                                </td>
                                 @break
                             @case('accepted')
-                                <td class="bg-success">Qabul qilindi</td>
+                                <td class="bg-success">Qabul qilindi |
+                                    @if(isset($article->comment))
+                                        <button class="btn btn-light" onclick='comments("{{$article->comment}}")'>
+                                            <i class="fa fa-comment"></i>
+                                        </button>
+                                    @endif
+                                </td>
                                 @break
                         @endswitch
-                        <td>
-                            <a href="{{ storage_path('app/article/' . $article->file) }}" target="_blank" class="btn btn-primary">
-                                <i class="fa fa-download"></i> Yuklash
-                            </a>
-                        </td>
+
                         <td style="width: 20%">
+                            <a href="{{ storage_path('article/' . $article->file) }}" target="__blank" class="btn btn-primary">
+                                <i class="fa fa-download"></i>
+                            </a>
+                            |
                             <a href="{{ route('profile.article.edit',$article->id) }}" class="btn btn-success"><i class="fa fa-pencil-alt"></i></a>
                             |
                             <form action="{{ route('profile.article.destroy', $article->id) }}" method="POST" onsubmit="return confirm('Jurnal sonini o\'chirmoqchimisiz?')" style="display: inline;">
@@ -75,4 +94,41 @@
         <!-- /.card-body -->
     </div>
     <!-- /.card -->
+
+    <div class="modal fade" id="modal-comments">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Maqolaga admin tomonidan izohlar.</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="m-comments"></p>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Orqaga</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+
 @endsection
+
+@push('page_js')
+
+    <script>
+
+        function comments(comments) {
+
+            $('#m-comments').html(comments);
+            $('#modal-comments').modal('toggle');
+        }
+    </script>
+@endpush

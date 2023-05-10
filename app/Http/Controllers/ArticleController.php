@@ -17,7 +17,7 @@ class ArticleController extends Controller
         $cmp = "=";
         if(is_null($issue_id)) $cmp = "!=";
 
-        $articles = Article::where('articles.issue_id',$cmp,$issue_id)->get();
+        $articles = Article::where('articles.issue_id',$cmp,$issue_id)->orderBy('id','desc')->get();
 
 
         return view('admin.articles',[
@@ -43,6 +43,25 @@ class ArticleController extends Controller
         return response('Bad request',400);
     }
 
+
+    public function comment(Article $article, Request $request)
+    {
+        $comment = "";
+
+        if(!is_null($request->comment)){
+            $date = date('d.m.Y H:i:s');
+
+            $comment = "<hr>";
+            $comment .= "<i>" . $request->comment . "</i>";
+            $comment .= "<br><p><b>Yozilgan vaqt: </b>" . $date. "</p><br>";
+            $article->comment = $article->comment . $comment;
+
+            $article->save();
+            return redirect()->back()->with('success_msg', "Xabar yuborildi!");
+        }
+
+        return redirect()->back()->with('error_msg', "Xatolik yuz berdi!");
+    }
 //  end form admin
 
 //  for users

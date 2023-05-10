@@ -68,8 +68,10 @@ Route::group(['prefix' => 'admin', 'middleware'=>'role:admin'], function (){
 
 
     Route::get('/articles', [ArticleController::class, 'all'])->name('admin.articles');
+    Route::get('/articles/add', [ArticleController::class, 'add'])->name('admin.articles');
     Route::get('/article/{article}', [ArticleController::class, 'details'])->name('admin.article.details');
     Route::get('/article/{article}/status', [ArticleController::class, 'status'])->name('admin.article.status');
+    Route::post('/article/{article}/comment', [ArticleController::class, 'comment'])->name('admin.article.comment');
 
 });
 Route::get('files/journal/{file}', [IssueController::class,'journalDownload'])->name('files.journal');

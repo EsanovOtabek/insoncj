@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->text('abstract');
             $table->string('keywords');
             $table->enum('status',['waiting','rejected','accepted'])->default('waiting');
+            $table->text('comment')->nullable();
             $table->string('file');
 
             $table->foreignId('issue_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');

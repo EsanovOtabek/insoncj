@@ -69,19 +69,20 @@
 
 @push('page_js')
     <!-- DataTables  & Plugins -->
-    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('adassets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('adassets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('adassets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('adassets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('adassets/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('adassets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('adassets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 
     <script>
         $(function () {
             $("#articles_table").DataTable({
                 "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": [ "print"]
+                // "buttons": [ "print"],
+                order: [[2, 'asc']]
             }).buttons().container().appendTo('#articles_table_wrapper .col-md-6:eq(0)');
         });
     </script>

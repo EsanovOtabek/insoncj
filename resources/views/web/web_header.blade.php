@@ -28,14 +28,28 @@
                     <a class="nav-link px-0 py-4" href="{{ route('experts') }}">{{ __('home.experts') }}</a>
                 </li>
 
-
                 <li class="nav-item mx-2 dropdown">
-                    <a class="nav-link dropdown-toggle px-0 py-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <strong>O'zbek</strong>
-                    </a>
+                        <a class="nav-link dropdown-toggle px-0 py-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @if(app()->getLocale() == 'uz')
+                                <strong>O'zbek</strong>
+                            @elseif(app()->getLocale() == 'en')
+                                <strong>English</strong>
+                            @elseif(app()->getLocale() == 'ru')
+                                <strong>Русский</strong>
+                            @endif
+
+                        </a>
                     <ul class="dropdown-menu m-0 border-0 shadow-sm p-2">
-                        <li><a class="dropdown-item px-3 py-2 rounded" href="{{ route('language','en') }}"><strong>English</strong></a></li>
-                        <li><a class="dropdown-item px-3 py-2 rounded" href="{{ route('language','ru') }}"><strong>Русский</strong></a></li>
+                        @if(app()->getLocale() == 'uz')
+                            <li><a class="dropdown-item px-3 py-2 rounded" href="{{ route('language','en') }}"><strong> English </strong></a></li>
+                            <li><a class="dropdown-item px-3 py-2 rounded" href="{{ route('language','ru') }}"><strong> Русский </strong></a></li>
+                        @elseif(app()->getLocale() == 'en')
+                            <li><a class="dropdown-item px-3 py-2 rounded" href="{{ route('language','uz') }}"><strong> O'zbek </strong></a></li>
+                            <li><a class="dropdown-item px-3 py-2 rounded" href="{{ route('language','ru') }}"><strong> Русский </strong></a></li>
+                        @elseif(app()->getLocale() == 'ru')
+                            <li><a class="dropdown-item px-3 py-2 rounded" href="{{ route('language','en') }}"><strong> English </strong></a></li>
+                            <li><a class="dropdown-item px-3 py-2 rounded" href="{{ route('language','uz') }}"><strong> O'zbek </strong></a></li>
+                        @endif
                     </ul>
                 </li>
 

@@ -40,9 +40,13 @@
                         <hr>
 
                         <div class="col-md-12 px-4 py-3 row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <b class="d-block pb-2"> Maqola fayli: </b>
                                 <a href="#" class="btn btn-success" style="width: 160px"><i class="fa fa-download"></i> Yuklash</a>
+                            </div>
+                            <div class="col-md-3">
+                                <b class="d-block pb-2"> Izoh: </b>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-addComment" style="width: 160px"><i class="fa fa-pen"></i> Xabar yozish</button>
                             </div>
                             <div class="col-sm-6">
                                 <form action="{{route('admin.article.status', $article->id)}}" method="get">
@@ -63,12 +67,53 @@
                     <!-- /.card -->
 
                 </div>
+
+                <div class="col-md-9">
+                    <div class="card card-primary ">
+                        <div class="px-4 py-3">
+                            <p>{!! $article->comment !!}</p>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
                 <!--/.col (left) -->
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+
+
+
+    <div class="modal fade" id="modal-addComment">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="POST" action="{{ route('admin.article.comment', $article->id) }}">
+                    @csrf
+                    @method('POST')
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ushbu maqola uchun izoh yozish.</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body form-group">
+                        <textarea  name="comment" class="form-control" id="comment" required placeholder="Izoh yozish" rows="5" cols="50"></textarea>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Bekor qilish</button>
+                        <button type="submit" class="btn btn-primary">Saqlash</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+
 
 @endsection
 

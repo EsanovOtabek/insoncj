@@ -15,6 +15,7 @@ class Article extends Model
         'abstract',
         'keywords',
         'status',
+        'comment',
         'file',
         'issue_id',
         'user_id',
