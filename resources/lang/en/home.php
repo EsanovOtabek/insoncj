@@ -20,7 +20,7 @@ return [
     'doc_3val' => "Choose an electronic option your article. In this case, the file format must be fayl.docx or .doc",
     'journals' => "Journals",
     'journals_last4' => "The last 4 issues of our journal.",
-    'counter_1' => "Journal numbers",
+    'counter_1' => "Journal issues",
     'counter_2' => "All articles",
     'counter_3' => "Members of the editorial board",
     'counter_4' => "Users",

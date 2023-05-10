@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Expert;
 use App\Models\Issue;
 use App\Models\News;
+use App\Models\User;
 use App\Models\Year;
 
 class SiteController extends Controller
@@ -19,6 +21,10 @@ class SiteController extends Controller
         return view('web.index',[
             'journals' => $journals,
             'news' => $news,
+            'c_users' => User::count(),
+            'c_articles' => Article::count(),
+            'c_issues' => Issue::count(),
+            'c_experts' => Expert::count(),
         ]);
     }
 
