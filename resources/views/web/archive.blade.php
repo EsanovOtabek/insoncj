@@ -53,7 +53,7 @@
                                                 <!-- {{ $loop->index }} mage -->
                                                 <div class="col">
                                                     <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden video-card-item shadow">
-                                                        <img src="{{ asset('images/site/journal.png') }}" class="card-img-top d-none d-lg-block" alt="...">
+                                                        <img src="{{ asset('images/journals/' . $journal->image) }}" class="card-img-top d-none d-lg-block" alt="...">
                                                         <div class="card-body row">
                                                             <div class="col-7">
                                                                 <h5 class="card-title mb-1 h6 text-dark">{{$journal['year']}} {{ __('home.year') }}. {{ $journal['number'] }} {{ __('home.number') }}</h5>

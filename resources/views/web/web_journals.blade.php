@@ -9,7 +9,7 @@
                 <!-- {{ $loop->index }} mage -->
                 <div class="col">
                     <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden video-card-item">
-                        <img src="{{ asset('images/site/journal.png') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('images/journals/' . $journal->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title mb-1 h6 text-dark">{{$journal['year']}}-yil. {{ $journal['number'] }}-son</h5>
                             <p class="card-text text-muted">{{$journal['year']}}-yil.</p>

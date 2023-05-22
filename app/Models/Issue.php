@@ -16,6 +16,7 @@ class Issue extends Model
         'year_id',
         'yil',
         'file',
+        'image',
     ];
 
 

@@ -35,12 +35,20 @@ class IssueController extends Controller
         $file_name = $year . "_yil_".$issue."_son.pdf";
         $ff = $request->file('file')->storeAs('journals',$file_name);
 
+
+        $image = $request->file('image');
+        $image_name = md5(time()) . "." . $image->extension();
+        $image->move(public_path().'/images/journals',$image_name);
+
+        $data['image'] = $image_name;
+
         //===========================\\
         $issue = new Issue();
         $issue->number = $request->number;
         $issue->year_id = $request->year_id;
         $issue->yil = (Year::find($issue->year_id))['year'];
         $issue->file = $file_name;
+        $issue->image = $image_name;
         $issue->save();
         return redirect()->back()->with('success_msg',"Jurnal soni muvaffaqiyatli qo'shildi!");
     }

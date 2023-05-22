@@ -30,6 +30,7 @@
                 <thead>
                 <tr style="border: 1px solid #333;">
                     <th style="width: 10px">#</th>
+                    <th>Jurnal rasmi</th>
                     <th>Jurnal soni</th>
                     <th>Jurnal Yili</th>
                     <th>Yuklash</th>
@@ -40,6 +41,7 @@
                 @foreach($issues as $issue)
                     <tr>
                         <td>{{ $loop->index+1 }}</td>
+                        <td><img src="{{ asset('images/journals/' . $issue->image) }}" alt="" width="120px"></td>
                         <td>{{ $issue->number }} - son</td>
                         <td>{{ $issue->yil }} - yil</td>
                         <td> <a href="{{ route('files.journal',$issue->file) }}" class="btn btn-primary"><i class="fa fa-download"></i> {{$issue->file}}</a> </td>

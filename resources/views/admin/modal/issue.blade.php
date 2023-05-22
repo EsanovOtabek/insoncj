@@ -22,6 +22,10 @@
                     </select>
 
                     <br>
+                    <label for="file">Jurnalni rasmini yuklang</label>
+                    <input type="file" name="image"  class="form-control" id="image" required placeholder="Yuklang" accept=".jpg, .png, .jpeg">
+
+                    <br>
                     <label for="file">Jurnalni yuklang</label>
                     <input type="file" name="file"  class="form-control" id="file" required placeholder="Yuklang" accept="application/pdf">
                 </div>

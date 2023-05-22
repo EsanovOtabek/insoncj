@@ -17,6 +17,7 @@ class CreateIssuesTable extends Migration
             $table->id();
             $table->integer('number');
             $table->string('file');
+            $table->string('image');
             $table->integer('yil');
             $table->foreignId('year_id')->nullable()->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->softDeletes();
