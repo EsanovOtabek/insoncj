@@ -11,6 +11,9 @@
     <meta property="og:image" content="@yield('og_image')">
     <meta name="keywords" content="Jurnal, inson, kapitali, inson kapitali, ilmiy jurnal, iqtisodiy jurnal, ijtimoiy rivojlanish, ilmiy maqola, maqola, maqola yuborish" />
     <!-- Bootstrap CSS -->
+    <!-- Jquery Js -->
+    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"/>
     <!-- Custom Css -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -19,7 +22,9 @@
     <link href="{{ asset('assets/vendor/slick/slick/slick-theme.css') }}" rel="stylesheet">
     <!-- Icofont -->
     <link href="{{ asset('assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('adassets/plugins/toastr/toastr.min.css') }}">
     <script src="{{ asset('adassets/plugins/toastr/toastr.min.js') }}"></script>
+
 
     @stack('page_css')
 
@@ -46,8 +51,7 @@
 @include('web.web_footer')
 
 </body>
-<!-- Jquery Js -->
-<script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+
 <!-- Bootstrap Bundle Js -->
 <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- Slick Js -->

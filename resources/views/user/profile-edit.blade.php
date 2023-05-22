@@ -27,28 +27,28 @@
                             @csrf
 
                             <div class="form-group col-md-12">
-                                <label for="authors">Telefon raqamingiz:</label>
-                                <input type="phone"  class="form-control" id="phone" required value="+998{{ $user->phone }}" disabled>
+                                <label for="email">Email:</label>
+                                <input type="email"  class="form-control" id="email" required value="{{ $user->email }}" disabled>
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="title">To'liq ismingiz:</label>
+                                <label for="fish">To'liq ismingiz:</label>
                                 <input type="text" name="fish"  class="form-control" id="fish" required placeholder="F.I.SH" value="{{ $user->fish }}">
                             </div>
 
 
                             <div class="form-group col-md-12">
-                                <label for="authors">Email:</label>
-                                <input type="email" name="email"  class="form-control" id="email" value="{{ $user->email }}" placeholder="email">
+                                <label for="phone">Telefon:</label>
+                                <input type="tel" name="phone"  class="form-control" id="phone" value="{{ $user->phone }}" placeholder="phone">
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="authors">Ish joyingiz:</label>
+                                <label for="workplace">Ish joyingiz:</label>
                                 <input type="text" name="workplace"  class="form-control" id="workplace" value="{{ $user->workplace }}" placeholder="Ish joyingiz">
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="authors">Lavozimingiz:</label>
+                                <label for="position">Lavozimingiz:</label>
                                 <input type="text" name="position"  class="form-control" id="position" value="{{ $user->position }}" placeholder="Lavozimingiz">
                             </div>
 

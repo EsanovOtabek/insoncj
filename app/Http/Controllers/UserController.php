@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         $user = User::find(auth()->user()->id);
         $user->fish = $request->fish;
-        $user->email = $request->email;
+        $user->phone = $request->phone;
         $user->workplace = $request->workplace;
         $user->position = $request->position;
         $user->save();

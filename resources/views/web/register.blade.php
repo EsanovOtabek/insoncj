@@ -4,17 +4,6 @@
 @section('description', __('home.journal_name'))
 @section('og_image', '')
 
-@push('page_js')
-    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
-    <script>
-        $(function() {
-            $.mask.definitions['9'] = false;
-            $.mask.definitions['0'] = "[0-9]";
-            $("#phone").mask("00-000-00-00");
-        });
-    </script>
-@endpush
-
 @section('body')
     <!-- Content -->
     <div class="bg-primary bg-gradient">
@@ -30,16 +19,9 @@
                             <label for="fish" class="form-label small text-muted">{{ __('home.fish') }} <small class="text-danger">*</small></label>
                             <input type="text" name="fish" class="form-control" id="fio" placeholder="F.I.SH">
                         </div>
-                        <div class="mb-3 row">
-                            <label for="fish" class="form-label small text-muted col-12">{{ __('home.phone') }} <small class="text-danger">*</small></label>
-                            <div class="input-group-append col-4 m-0">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text ps-md-4 ps-sm-2"><b>+998</b></span>
-                                </div>
-                            </div>
-                            <div class="col-8 p-0"  style="height: 38px; margin-left: -10px">
-                                <input type="tel" name="phone" class="form-control h-100" id="phone" placeholder="XX-XXX-XX-XX">
-                            </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label small text-muted col-12">{{ __('home.email') }} <small class="text-danger">*</small></label>
+                            <input type="email" name="email" class="form-control h-100" id="email" placeholder="Email">
                         </div>
 
                         <div class="mb-3">

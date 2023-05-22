@@ -44,4 +44,6 @@ return [
     'login_problem' => "Are there any problems during the registration process?",
     'fish' => "FULL NAME",
     'share' => "Connection",
+    'otp' => "A 6-digit code has been sent to your email. Please check your spam folder if you have not received the code",
+    'otp_t' => "Enter the 6-digit code."
 ];
