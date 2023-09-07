@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Doi;
 use App\Models\Expert;
 use App\Models\Issue;
 use App\Models\News;
@@ -53,6 +54,22 @@ class SiteController extends Controller
         return view('web.archive',[
             'journals' => $journals,
             'years' => Year::all(),
+        ]);
+    }
+
+    public function dois($id){
+        $issue = Issue::find($id);
+        $dois = Doi::where('issue_id','=',$issue->id)->orderBy('id','desc')->get();
+
+        return view('web.archive_dois',[
+            'dois'=>$dois,
+            'journal'=>$issue,
+        ]);
+    }
+
+    public function doi_show(Doi $doi){
+        return view('web.doi_show',[
+            'doi'=>$doi,
         ]);
     }
 

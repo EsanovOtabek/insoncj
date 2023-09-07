@@ -13,12 +13,17 @@ class ArticleController extends Controller
 //    for admin
     public function all(Request $request){
         $issue_id = $request->issue;
-
+        $status = $request->status;
         $cmp = "=";
+
         if(is_null($issue_id)) $cmp = "!=";
 
-        $articles = Article::where('articles.issue_id',$cmp,$issue_id)->orderBy('id','desc')->get();
+        if($status == "accepted" or $status=="rejected" or $status=="waiting"){
+            $articles = Article::where('articles.issue_id',$cmp,$issue_id)->where('articles.status','=',$status)->orderBy('id','desc')->get();
+        }else{
+            $articles = Article::where('articles.issue_id',$cmp,$issue_id)->orderBy('id','desc')->get();
 
+        }
 
         return view('admin.articles',[
             'articles' => $articles,

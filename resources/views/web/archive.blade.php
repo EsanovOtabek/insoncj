@@ -53,11 +53,15 @@
                                                 <!-- {{ $loop->index }} mage -->
                                                 <div class="col">
                                                     <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden video-card-item shadow">
-                                                        <img src="{{ asset('images/journals/' . $journal->image) }}" class="card-img-top d-none d-lg-block" alt="...">
+                                                        <a href="{{route('archive.dois', $journal->id)}}">
+                                                            <img src="{{ asset('images/journals/' . $journal->image) }}" class="card-img-top d-none d-lg-block" alt="...">
+                                                        </a>
                                                         <div class="card-body row">
                                                             <div class="col-7">
-                                                                <h5 class="card-title mb-1 h6 text-dark">{{$journal['year']}} {{ __('home.year') }}. {{ $journal['number'] }} {{ __('home.number') }}</h5>
-                                                                <p class="card-text text-muted">{{$journal['year']}} {{ __('home.year') }}.</p>
+                                                                <a href="{{route('archive.dois', $journal->id)}}" class="btn-link">
+                                                                    <h5 class="card-title mb-1 h6 text-dark">{{$journal['year']}} {{ __('home.year') }}. {{ $journal['number'] }} {{ __('home.number') }}</h5>
+                                                                    <p class="card-text text-muted">{{$journal['year']}} {{ __('home.year') }}.</p>
+                                                                </a>
                                                             </div>
                                                             <div class="col-5 text-right">
                                                                 <a href="{{ route('files.journal', $journal->file) }}" type="button" class="btn btn-primary btn-sm px-2 py-0">

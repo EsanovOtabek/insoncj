@@ -46,5 +46,6 @@ return [
     'share' => "Ulashish",
     'otp' => "Emailingizga 6 xonali kod jo'natildi, Iltimos agar kod bormasa spam qutisini ham tekshiring!",
     'otp_t' => "6 xonali kodni kiriting.",
+    'abstract' => "Annotatsiya",
 
 ];

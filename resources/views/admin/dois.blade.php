@@ -1,11 +1,12 @@
 @extends('base.admin')
 
 @section('title')
-    Maqolalar
+    Arxiv Maqolalar
 @endsection
 
 @section('content_name')
-    Maqolalar
+    Arxiv Maqolalar
+
 @endsection
 
 @push('page_css')
@@ -21,38 +22,37 @@
     <div class="card card-solid ">
 
         <div class="card-body pb-0 table-responsive">
-            <table id="articles_table" class="table table-bordered table-striped mb-5 text-nowrap">
+            <table id="articles_table" class="table table-bordered table-striped mb-5">
                 <thead>
-                <tr style="border: 1px solid #333;">
-                    <th style="width: 10px">#</th>
-                    <th>Mavzu</th>
-                    <th>Mualliflar</th>
-                    <th>Maqola holati</th>
-                    <th>Ko'rish</th>
-                </tr>
+                    <tr style="border: 1px solid #333;">
+                        <th style="width: 10px">#</th>
+                        <th>Maqola mavzusi</th>
+                        <th>Mualliflar</th>
+                        <th>Abstract</th>
+                        <th>DOI_URL</th>
+                        <th>FILE | Delete</th>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach($articles as $article)
+                @foreach($dois as $doi)
                     <tr>
-                        <td>{{ $loop->index+1 }}</td>
-                        <td>{{ $article->title }}</td>
+                        <td style="width: 10px">{{ $loop->index+1 }}</td>
+                        <td>{{ $doi->title }}</td>
+                        <td class="text-bold">{{ $doi->authors }}</td>
+                        <td>{{ $doi->abstract }}</td>
+                        <td>{{ $doi->doi_url }}</td>
+                        <td> <a href="{{ route('dois.file',$doi->doi_file) }}" class="btn btn-primary"><i class="fa fa-download"></i> </a>
 
-                        <td class="text-bold">{{ $article->authors }}</td>
-
-                    @switch($article->status)
-                            @case('waiting')
-                                <td class="bg-warning">Kutilmoqda</td>
-                                @break
-                            @case('rejected')
-                                <td class="bg-danger">Rad etildi</td>
-                                @break
-                            @case('accepted')
-                                <td class="bg-success">Qabul qilindi</td>
-                                @break
-                        @endswitch
-                        <td style="width: 20%">
-                            <a href="{{ route('admin.article.details',$article->id) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                            |
+                            <form action="{{ route('admin.dois.destroy', $doi->id) }}" method="POST" onsubmit="return confirm('Arxiv maqolani o\'chirmoqchimisiz?')" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
                         </td>
+
                     </tr>
                 @endforeach
                 </tbody>
@@ -76,9 +76,8 @@
     <script>
         $(function () {
             $("#articles_table").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "responsive": true, "lengthChange": true, "autoWidth": false,
                 // "buttons": [ "print"],
-                order: [[2, 'asc']]
             }).buttons().container().appendTo('#articles_table_wrapper .col-md-6:eq(0)');
         });
     </script>

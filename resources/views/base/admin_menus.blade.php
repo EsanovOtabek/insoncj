@@ -29,15 +29,50 @@
     </li>
 
     <li class="nav-item">
-        <a href="{{ route('admin.articles') }}" class="nav-link">
-            <i class="nav-icon fas fa-file-archive"></i>
+        <a href="{{ route('admin.dois.create') }}" class="nav-link">
+            <i class="nav-icon fas fa-plus"></i>
             <p>
-                Maqolalar
+                Arxiv maqola qo'shish
             </p>
         </a>
     </li>
 
-
+    {{--Maqolalar--}}
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-file-archive"></i>
+            <p>
+                Maqolalar
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{ route('admin.articles') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Jami Maqolalar</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.articles') }}?status=accepted" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Qabul qilingan Maqolalar</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.articles') }}?status=rejected" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Rad etilgan Maqolalar</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.dois') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Arxiv Maqolalar</p>
+                </a>
+            </li>
+        </ul>
+    </li>
 
     {{--Yangiliklar--}}
     <li class="nav-item">

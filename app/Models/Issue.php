@@ -24,4 +24,7 @@ class Issue extends Model
     public function articles(){
         return $this->hasMany(Article::class);
     }
+    public function dois(){
+        return $this->hasMany(Doi::class);
+    }
 }

@@ -3,12 +3,14 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DoiController;
 use App\Http\Controllers\ExpertController;
 use App\Http\Controllers\IssueController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\TelegramController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\YearController;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +46,9 @@ Route::get('/about',[SiteController::class,'about'])->name('about');
 Route::get('/news',[SiteController::class,'news'])->name('news');
 Route::get('/news/{news}',[SiteController::class,'newsShow'])->name('newsShow');
 Route::get('/archive',[SiteController::class,'archive'])->name('archive');
+Route::get('/archive/{issue}',[SiteController::class,'dois'])->name('archive.dois');
+Route::get('/research/{doi}',[SiteController::class,'doi_show'])->name('archive.doi.show');
+
 Route::get('/experts',[SiteController::class,'experts'])->name('experts');
 
 Route::group(['prefix' => 'admin', 'middleware'=>'role:admin'], function (){
@@ -77,8 +82,14 @@ Route::group(['prefix' => 'admin', 'middleware'=>'role:admin'], function (){
     Route::get('/article/{article}/status', [ArticleController::class, 'status'])->name('admin.article.status');
     Route::post('/article/{article}/comment', [ArticleController::class, 'comment'])->name('admin.article.comment');
 
+    Route::get('/dois', [DoiController::class, 'index'])->name('admin.dois');
+    Route::get('/add_doi', [DoiController::class, 'create'])->name('admin.dois.create');
+    Route::post('/add_doi', [DoiController::class, 'store']);
+    Route::delete('/doi/delete/{doi}',[DoiController::class, 'destroy'])->name('admin.dois.destroy');
 });
+
 Route::get('files/journal/{file}', [IssueController::class,'journalDownload'])->name('files.journal');
+Route::get('dois/file/{file}', [DoiController::class,'download'])->name('dois.file');
 
 Route::group(['prefix' => 'profile', 'middleware'=>'role:user'], function (){
     Route::get('/', [UserController::class, 'index'])->name('profile.index');
@@ -92,3 +103,9 @@ Route::group(['prefix' => 'profile', 'middleware'=>'role:user'], function (){
     ]);
 
 });
+
+
+//telegram bot configuration
+
+Route::get('telegram/get-me',[TelegramController::class, 'getMe'])->name('telegram-getme');
+Route::get('telegram/web-hook',[TelegramController::class, 'setWebHook'])->name('telegram-setWebHook');

@@ -9,7 +9,7 @@
     <meta name="author" content="InsonCJ">
     <meta name="description" content="@yield('description')" />
     <meta property="og:image" content="@yield('og_image')">
-    <meta name="keywords" content="Jurnal, inson, kapitali, inson kapitali, ilmiy jurnal, iqtisodiy jurnal, ijtimoiy rivojlanish, ilmiy maqola, maqola, maqola yuborish" />
+    <meta name="keywords" content="Jurnal, inson, kapitali, inson kapitali, ilmiy jurnal, iqtisodiy jurnal, ijtimoiy rivojlanish, ilmiy maqola, maqola, maqola yuborish, @yield('keywords')" />
     <!-- Bootstrap CSS -->
     <!-- Jquery Js -->
     <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>

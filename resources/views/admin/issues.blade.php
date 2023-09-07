@@ -34,7 +34,9 @@
                     <th>Jurnal soni</th>
                     <th>Jurnal Yili</th>
                     <th>Yuklash</th>
-                    <th>View | Delete</th>
+                    <th>Kelib tushgan maqolalar</th>
+                    <th>Jurnal arxivi</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -45,9 +47,14 @@
                         <td>{{ $issue->number }} - son</td>
                         <td>{{ $issue->yil }} - yil</td>
                         <td> <a href="{{ route('files.journal',$issue->file) }}" class="btn btn-primary"><i class="fa fa-download"></i> {{$issue->file}}</a> </td>
-                        <td style="width: 20%">
-                            <a href="{{ route('admin.articles') }}?issue={{$issue->id}}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                        <td><a href="{{ route('admin.articles') }}?issue={{$issue->id}}" class="btn btn-success"><i class="fa fa-eye"></i></a></td>
+                        <td>
+                            <a href="{{ route('admin.dois') }}?issue={{$issue->id}}" class="btn btn-success"><i class="fa fa-archive"></i></a>
                             |
+                            <a href="{{ route('admin.dois.create') }}?issue={{$issue->id}}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+
+                        </td>
+                        <td style="width: 20%">
                             <form action="{{ route('admin.issues.destroy', $issue->id) }}" method="POST" onsubmit="return confirm('Jurnal sonini o\'chirmoqchimisiz?')" style="display: inline;">
                                 @csrf
                                 @method('DELETE')

@@ -38,7 +38,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-8">
-                <span class="me-3 small">©2023 <b class="text-primary">Esanov</b>. All rights reserved</span>
+                <span class="me-3 small">©2023 <b class="text-primary">Human capital and social development.</b> All rights reserved</span>
                 <a class="text-black-50 small mx-3 text-decoration-none" href="{{ route('login') }}">{{ __('home.login') }}</a>
                 <a class="text-black-50 small mx-3 text-decoration-none" href="{{ route('register') }}">{{ __('home.register') }}</a>
             </div>

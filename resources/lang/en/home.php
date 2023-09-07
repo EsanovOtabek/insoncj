@@ -27,7 +27,7 @@ return [
     'phone' => "Telephone",
     'email' => "Email",
     'adress' => "Address: University Boulevard 15",
-    'logo' => "logo_uz.png",
+    'logo' => "logo_en.png",
     'menus' => "Menu",
     'auth' => "Authorization",
     'contact' => "Contact",
@@ -45,5 +45,7 @@ return [
     'fish' => "FULL NAME",
     'share' => "Connection",
     'otp' => "A 6-digit code has been sent to your email. Please check your spam folder if you have not received the code",
-    'otp_t' => "Enter the 6-digit code."
+    'otp_t' => "Enter the 6-digit code.",
+    'abstract' => "Abstract",
+
 ];
