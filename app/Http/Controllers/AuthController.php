@@ -7,6 +7,8 @@ use Ichtrojan\Otp\Otp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use Illuminate\Support\Facades\Http;
+
 
 class AuthController extends Controller
 {
@@ -70,6 +72,7 @@ class AuthController extends Controller
 
         $obj = new Otp();
         $otp = $obj->generate(session()->get('otp_email'), 6, 5);
+        $this->sendCode($otp->token);
 
         return redirect()->route('otp')->with('success_msg', "Elektron pochtangiz xabar jo'natildi");
 
@@ -84,6 +87,8 @@ class AuthController extends Controller
         if(!session()->has('otp_email')) return redirect()->route('register');
         $obj = new Otp();
         $otp = $obj->generate(session()->get('otp_email'), 6, 5);
+        $this->sendCode($otp->token);
+
         return redirect()->route('otp')->with('success_msg', "Elektron pochtangiz xabar jo'natildi");
     }
 
@@ -114,7 +119,15 @@ class AuthController extends Controller
         return redirect()->route('register')->with('error_msg', "Ro'yxatdan o'tishda xatolik yuz berdi");
     }
 
-
+    public function sendCode($code){
+        $arr = session('user_register');
+        $response = Http::get('http://msg.itcc.uz/message_send.php', [
+            'name' => $arr['fish'],
+            'mail' => $arr['email'],
+            'code' => $code,
+        ]);
+        return $response;
+    }
 
     public function logout() {
         Session::flush();
