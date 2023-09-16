@@ -26,7 +26,7 @@ return [
     'counter_4' => "Users",
     'phone' => "Telephone",
     'email' => "Email",
-    'adress' => "Address: University Boulevard 15",
+    'adress' => "Address: ",
     'logo' => "logo_en.png",
     'menus' => "Menu",
     'auth' => "Authorization",

@@ -125,6 +125,17 @@
 
     </li>
 
+
+    <li class="nav-item">
+        <a href="{{ route('admin.static_elements') }}" class="nav-link">
+            <i class="nav-icon fas fa-globe"></i>
+            <p>
+                Statik ma'lumotlar
+            </p>
+        </a>
+    </li>
+
+
     <li class="nav-item border-top border-bottom border-primary">
         <a href="{{ route('logout') }}" class="nav-link">
             <i class="nav-icon fas fa-sign-out-alt"></i>

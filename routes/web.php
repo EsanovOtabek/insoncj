@@ -86,6 +86,9 @@ Route::group(['prefix' => 'admin', 'middleware'=>'role:admin'], function (){
     Route::get('/add_doi', [DoiController::class, 'create'])->name('admin.dois.create');
     Route::post('/add_doi', [DoiController::class, 'store']);
     Route::delete('/doi/delete/{doi}',[DoiController::class, 'destroy'])->name('admin.dois.destroy');
+
+    Route::get('/static_elements', [AdminController::class, 'static_elements'])->name('admin.static_elements');
+    Route::post('/static_elements', [AdminController::class, 'static_update']);
 });
 
 Route::get('files/journal/{file}', [IssueController::class,'journalDownload'])->name('files.journal');

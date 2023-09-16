@@ -121,7 +121,7 @@ class AuthController extends Controller
 
     public function sendCode($code){
         $arr = session('user_register');
-        $response = Http::get('http://msg.itcc.uz/message_send.php', [
+        $response = Http::get('http://hcsd/message_send.php', [
             'name' => $arr['fish'],
             'mail' => $arr['email'],
             'code' => $code,

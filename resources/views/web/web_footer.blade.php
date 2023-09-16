@@ -17,18 +17,18 @@
                 </div>
                 <div class="col-6 col-lg-2 col-md-3">
                     <h6 class="mb-3 text-body fw-bold">{{ __('home.contact') }}</h6>
-                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="tel:">932360433</a>
-                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="tel:">932360433</a>
-                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="tel:">932360433</a>
+                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="tel:{{ $static_tel1 }}">{{ $static_tel1 }}</a>
+                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="tel:{{ $static_tel2 }}">{{ $static_tel2 }}</a>
+                    <a class="py-1 text-decoration-none d-block w-100 text-muted" href="tel:{{ $static_tel3 }}">{{ $static_tel3 }}</a>
                 </div>
                 <div class="col-6 col-lg-4 col-md-3 ps-lg-5">
                     <a href="{{ route('index') }}" class="brand d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
                         <img src="{{ asset('assets/img/'. __('home.logo')) }}" class="img-fluid" alt="InfonCJ">
                     </a>
                     <br>
-                    <p>{{ __('home.phone') }}: <a class="py-1 text-decoration-none d-inline w-100 text-muted" href="tel:">932360433</a>.</p>
-                    <p>{{ __('home.email') }}: <a class="py-1 text-decoration-none d-inline w-100 text-muted" href="email:">hello@lifepc.uz</a>.</p>
-                    <p>{{ __('home.adress') }}</p>
+                    <p>{{ __('home.phone') }}: <a class="py-1 text-decoration-none d-inline w-100 text-muted" href="tel:{{ $static_tel1 }}">{{ $static_tel1 }}</a>.</p>
+                    <p>{{ __('home.email') }}: <a class="py-1 text-decoration-none d-inline w-100 text-muted" href="email:{{ $static_email }}">{{ $static_email }}</a>.</p>
+                    <p>{{ __('home.adress') }} {{ ${'adress_'.Lang::locale()}  }}</p>
                 </div>
             </div>
         </div>

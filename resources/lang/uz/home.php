@@ -26,7 +26,7 @@ return [
     'counter_4' => "Foydalanuvchilar",
     'phone' => "Telefon",
     'email' => "Email",
-    'adress' => "Manzil: Universitet xiyoboni 15-uy",
+    'adress' => "Manzil: ",
     'logo' => "logo_uz.png",
     'menus' => "Menyular",
     'auth' => "Avtorizatsiya",
