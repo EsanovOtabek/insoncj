@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Statik;
 use App\Models\User;
 use Ichtrojan\Otp\Otp;
 use Illuminate\Http\Request;
@@ -18,8 +19,17 @@ class AuthController extends Controller
             if(Auth::user()->role == 'admin') return redirect()->route('admin.index');
             if(Auth::user()->role == 'user') return redirect()->route('profile.index');
         }
+        $static = Statik::find(1);
 
-        return view('web.login');
+        return view('web.login',[
+            'static_tel1' =>$static['static_tel1'],
+            'static_tel2' =>$static['static_tel2'],
+            'static_tel3' =>$static['static_tel3'],
+            'static_email' =>$static['static_email'],
+            'adress_uz' =>$static['adress_uz'],
+            'adress_en' =>$static['adress_en'],
+            'adress_ru' =>$static['adress_ru'],
+        ]);
     }
 
     public function register(){
@@ -27,7 +37,17 @@ class AuthController extends Controller
         if(Auth::check()){
             if(Auth::user()->role == 'user') return redirect()->route('profile.index');
         }
-        return view('web.register');
+        $static = Statik::find(1);
+
+        return view('web.register',[
+            'static_tel1' =>$static['static_tel1'],
+            'static_tel2' =>$static['static_tel2'],
+            'static_tel3' =>$static['static_tel3'],
+            'static_email' =>$static['static_email'],
+            'adress_uz' =>$static['adress_uz'],
+            'adress_en' =>$static['adress_en'],
+            'adress_ru' =>$static['adress_ru'],
+        ]);
     }
 
 
@@ -73,14 +93,23 @@ class AuthController extends Controller
         $obj = new Otp();
         $otp = $obj->generate(session()->get('otp_email'), 6, 5);
         $this->sendCode($otp->token);
-
         return redirect()->route('otp')->with('success_msg', "Elektron pochtangiz xabar jo'natildi");
 
     }
 
     public function otp(){
         if(!session()->has('otp_email')) return redirect()->route('register');
-        return view('web.otp');
+        $static = Statik::find(1);
+
+        return view('web.otp',[
+            'static_tel1' =>$static['static_tel1'],
+            'static_tel2' =>$static['static_tel2'],
+            'static_tel3' =>$static['static_tel3'],
+            'static_email' =>$static['static_email'],
+            'adress_uz' =>$static['adress_uz'],
+            'adress_en' =>$static['adress_en'],
+            'adress_ru' =>$static['adress_ru'],
+        ]);
     }
 
     public function re_otp(){
@@ -121,7 +150,7 @@ class AuthController extends Controller
 
     public function sendCode($code){
         $arr = session('user_register');
-        $response = Http::get('http://hcsd/message_send.php', [
+        $response = Http::get('http://hcsd.uz/message_send.php', [
             'name' => $arr['fish'],
             'mail' => $arr['email'],
             'code' => $code,
